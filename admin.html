@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <style>
+  body{
+    transition:0.3s;
+  }
+  #mode{
+    font-size:24px;
+    padding:10px;
+  }
+  .mylogo{
+    
+    object-fit:cover;
+    clip-path:circle(35% at center);
+    width: 60%;           /* Logo ka size yahan se control karein */
+    height: 60%;
+    
+  }
+  .imgcon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+    
+    
+    
+  }
+  .nav{
+    display: flex;
+    gap:40px;
+    background-color: #beef00;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+  }
+  a{
+    text-decoration:none;
+    color: #ffffff;
+  }
+  
+  #text{
+    border:2px solid black;
+    text-align:center;
+    padding:10px;
+    
+    border-radius:10px;
+  }
+  
+  h3{
+    text-align:center;
+  }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="second.html">
+    <p>Home</p>
+    </a>
+    <a href="admin.html">
+    <p>About us</p>
+    </a>
+    <a href="#">
+    <p>Contact Us</p>
+    </a>
+  </div>
+  <button onClick="toggle()" id="mode">‎🌙</button>
+  <div class="imgcon">
+    
+    
+    <img src="my.png" class="mylogo">
+    
+    
+  </div>
+  <h3><b><u>Decoded_191</u></b></h3>
+  <p id="text"><i>Hello! I am decoded_191. I am a passionate developer and modder. I love building web applications and exploring the world of Android modding. This web app is a place where I share useful code snippets and tools to help other creators build their projects faster.</i></p>
+  
+
+
+<script>
+  let dark = false;
+  var x = document.getElementById("mode")
+  var b = document.body.style
+  var t = document.getElementById("text")
+  function toggle(){
+  if (dark){
+    b.backgroundColor="#ffffff";
+    b.color="#000000";
+    x.innerHTML="‎🌙";
+    t.backgroundColor="#f4f4f4";
+    dark=false;
+  }else{
+    b.backgroundColor="#000000";
+    b.color="#ffffff";
+    x.innerHTML="‎☀️";
+    t.backgroundColor="#000000";
+    dark=true;
+  }
+  }
+  
+
+</script>
+
+</body>
+</html>
