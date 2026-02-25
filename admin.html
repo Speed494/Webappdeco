@@ -106,13 +106,18 @@
   
 
 </script>
-  <script type="py" terminal>
-        print("Hello from Python on my GitHub Website!")
-        
-        # Aap yahan math ya logic ka use kar sakte hain
-        import math
-        print(f"Square root of 16 is {math.sqrt(16)}")
-    </script>
+  <div id="python-output" style="border: 1px solid green; padding: 10px; margin-top: 20px;"></div>
+  <script type="py">
+    from pyscript import display
+    import math
 
+    result = f"Square root of 16 is {math.sqrt(16)}"
+    
+    # Ye line output ko 'python-output' wale div mein bhej degi
+    display("Hello from Python!", target="python-output")
+    display(result, target="python-output")
+  </script>
+  
+  
 </body>
 </html>
