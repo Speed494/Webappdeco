@@ -114,21 +114,59 @@ import asyncio
 from pyscript import display
 
 keywords = [
-    "Initializing System...", "Bypassing Firewall...", "Accessing Mainframe...",
-    "Decrypting Data...", "Scanning Network...", "Root Access Acquired",
-    "Injecting Script...", "System Override", "Mission Complete"
+    "Access Granted",
+
+"Access Denied",
+
+"Decrypting Data…",
+
+"Initializing System…",
+
+"Bypassing Firewall…",
+
+"Connection Established",
+
+"Scanning Network…",
+
+"Uploading Payload…",
+
+"Downloading Files…",
+
+"Root Access Acquired",
+
+"Injecting Script…",
+
+"System Override",
+
+"Authentication Required",
+
+"Password Cracked",
+
+"Encrypting Data…",
+
+"IP Traced",
+
+"Proxy Enabled",
+
+"Data Stream Active",
+
+"Security Breach Detected",
+
+"Mission Complete",
+  "Prank Tha Real Nahi😂"
+  
 ]
 
 async def run_hacker_sequence():
     terminal = "hacker-terminal"
     for word in keywords:
-        # Har keyword ko screen par dikhayega
+        
         display(f"> {word}", target=terminal, append=True)
         
-        # Ye line 1 second ka gap degi bina website ko hang kiye
+        
         await asyncio.sleep(1)
 
-# Sequence shuru karne ke liye
+
 asyncio.ensure_future(run_hacker_sequence())
 </script>
   
