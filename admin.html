@@ -106,50 +106,32 @@
   
 
 </script>
-  <div id="flag-container" style="text-align: center; margin-top: 20px;">
-    <canvas id="flagCanvas" width="300" height="200" style="border:1px solid #ccc;"></canvas>
+  <div id="hacker-terminal" style="background-color: black; color: #00FF00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 5px; height: 300px; overflow-y: auto;">
 </div>
 
 <script type="py">
-from pyscript import window
-import math
+import asyncio
+from pyscript import display
 
-# Browser ka canvas pakadne ke liye
-canvas = window.document.getElementById("flagCanvas")
-ctx = canvas.getContext("2d")
+keywords = [
+    "Initializing System...", "Bypassing Firewall...", "Accessing Mainframe...",
+    "Decrypting Data...", "Scanning Network...", "Root Access Acquired",
+    "Injecting Script...", "System Override", "Mission Complete"
+]
 
-def draw_flag():
-    # 1. Saffron (Top)
-    ctx.fillStyle = "#FF9933"
-    ctx.fillRect(0, 0, 300, 66)
+async def run_hacker_sequence():
+    terminal = "hacker-terminal"
+    for word in keywords:
+        # Har keyword ko screen par dikhayega
+        display(f"> {word}", target=terminal, append=True)
+        
+        # Ye line 1 second ka gap degi bina website ko hang kiye
+        await asyncio.sleep(1)
 
-    # 2. White (Middle)
-    ctx.fillStyle = "#FFFFFF"
-    ctx.fillRect(0, 66, 300, 66)
-
-    # 3. Green (Bottom)
-    ctx.fillStyle = "#138808"
-    ctx.fillRect(0, 132, 300, 66)
-
-    # 4. Ashoka Chakra (Blue Circle)
-    ctx.strokeStyle = "#000080"
-    ctx.lineWidth = 2
-    ctx.beginPath()
-    ctx.arc(150, 99, 30, 0, 2 * math.pi)
-    ctx.stroke()
-
-    # Chakra ki teeliya (24 Spokes)
-    for i in range(24):
-        angle = i * (math.pi / 12)
-        x2 = 150 + 30 * math.cos(angle)
-        y2 = 99 + 30 * math.sin(angle)
-        ctx.moveTo(150, 99)
-        ctx.lineTo(x2, y2)
-        ctx.stroke()
-
-draw_flag()
-print("Indian Flag drawn successfully using Python & Canvas!")
+# Sequence shuru karne ke liye
+asyncio.ensure_future(run_hacker_sequence())
 </script>
+  
   
   
   
