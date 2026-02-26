@@ -8,13 +8,55 @@
   
   
   <style>
-  body{
-    transition:0.3s;
-  }
-  #mode{
-    font-size:24px;
-    padding:10px;
-  }
+    #matrix-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    z-index: 0;
+    color: #00FF00;
+    font-size: 15px;
+    opacity: 0.15; 
+    line-height: 1;
+}
+
+
+#terminal-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: black;
+    border: 2px solid #00FF00;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#hacker-terminal {
+    position: relative;
+    z-index: 1;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    background: transparent;
+}
+
+
+.line {
+    margin-bottom: 5px;
+    border-right: 2px solid #00FF00;
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink { 50% { border-color: transparent; } }
+  
   .mylogo{
     
     object-fit:cover;
@@ -59,6 +101,8 @@
   </style>
 </head>
 <body>
+  <div id="hacker-terminal"></div>
+</div>
   <div class="nav">
     <a href="second.html">
     <p>Home</p>
@@ -70,7 +114,7 @@
     <p>Contact Us</p>
     </a>
   </div>
-  <button onClick="toggle()" id="mode">‎🌙</button>
+  
   <div class="imgcon">
     
     
@@ -83,29 +127,6 @@
   
 
 
-<script>
-  let dark = false;
-  var x = document.getElementById("mode")
-  var b = document.body.style
-  var t = document.getElementById("text")
-  function toggle(){
-  if (dark){
-    b.backgroundColor="#ffffff";
-    b.color="#000000";
-    x.innerHTML="‎🌙";
-    t.backgroundColor="#f4f4f4";
-    dark=false;
-  }else{
-    b.backgroundColor="#000000";
-    b.color="#ffffff";
-    x.innerHTML="‎☀️";
-    t.backgroundColor="#000000";
-    dark=true;
-  }
-  }
-  
-
-</script>
   <div id="hacker-terminal" style="background-color: black; color: #00FF00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 5px; height: 300px; overflow-y: auto;">
 </div>
 
