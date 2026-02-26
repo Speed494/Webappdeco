@@ -8,55 +8,7 @@
   
   
   <style>
-    #matrix-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    overflow: hidden;
-    z-index: 0;
-    color: #00FF00;
-    font-size: 15px;
-    opacity: 0.15; 
-    line-height: 1;
-}
-
-
-#terminal-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-color: black;
-    border: 2px solid #00FF00;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#hacker-terminal {
-    position: relative;
-    z-index: 1;
-    color: #00FF00;
-    font-family: 'Courier New', monospace;
-    padding: 20px;
-    height: 100%;
-    overflow-y: auto;
-    background: transparent;
-}
-
-
-.line {
-    margin-bottom: 5px;
-    border-right: 2px solid #00FF00;
-    white-space: nowrap;
-    overflow: hidden;
-    width: fit-content;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink { 50% { border-color: transparent; } }
-  
+    
   .mylogo{
     
     object-fit:cover;
@@ -98,11 +50,60 @@
   h3{
     text-align:center;
   }
+
+
+    #matrix-canvas {
+‎        position: fixed;
+‎        top: 0;
+‎        left: 0;
+‎        width: 100vw;
+‎        height: 100vh;
+‎        z-index: -1; /* Sabse piche */
+‎        background-color: black;
+‎    }
+‎
+‎    body {
+‎        margin: 0;
+‎        padding: 0;
+‎        background-color: black;
+‎        color: #00FF00; /* Neon Green text */
+‎        font-family: 'Courier New', monospace;
+‎    }
+‎
+‎    /* Terminal Container */
+‎    #hacker-terminal {
+‎        position: relative;
+‎        z-index: 10;
+‎        padding: 20px;
+‎        height: 80vh;
+‎        overflow-y: auto;
+‎        font-size: 1.2rem;
+‎        text-shadow: 2px 2px 5px black; /* Text ko readable banane ke liye */
+‎        background: rgba(0, 0, 0, 0.4); /* Thoda black tint taaki piche ka rain text ko disturb na kare */
+‎    }
+‎
+‎    /* Baki webpage elements ki styling */
+‎    .navbar {
+‎        background: #adff2f; /* Lime color jaisa aapki image mein hai */
+‎        padding: 15px;
+‎        display: flex;
+‎        justify-content: space-around;
+‎        color: black;
+‎        font-weight: bold;
+‎        position: sticky;
+‎        top: 0;
+‎        z-index: 20;
+‎    }
+‎
+‎    .developer-section {
+‎        text-align: center;
+‎        margin-top: 20px;
+‎    }
   </style>
 </head>
 <body>
-  <div id="hacker-terminal"></div>
-</div>
+  
+
   <div class="nav">
     <a href="second.html">
     <p>Home</p>
@@ -124,89 +125,94 @@
   </div>
   <h3><b><u>Decoded_191</u></b></h3>
   <p id="text"><i>Hello! I am decoded_191. I am a passionate developer and modder. I love building web applications and exploring the world of Android modding. This web app is a place where I share useful code snippets and tools to help other creators build their projects faster.</i></p>
+<script>
 
   
+const canvas = document.getElementById('matrix-canvas');
+‎const ctx = canvas.getContext('2d');
+‎
+‎canvas.width = window.innerWidth;
+‎canvas.height = window.innerHeight;
+‎
 
+‎const fallKeywords = [
+‎    "Access Granted", "Access Denied", "Decrypting Data...", "Initializing System...",
+‎    "Bypassing Firewall...", "Decoded_191", "Connection Established", "Scanning Network...",
+‎    "Uploading Payload...", "Downloading Files...", "Root Access Acquired",
+‎    "Injecting Script...", "System Override", "Authentication Required",
+‎    "Password Cracked", "Encrypting Data...", "IP Traced", "Proxy Enabled",
+‎    "Data Stream Active", "Security Breach Detected", "Mission Complete"
+‎];
+‎
+‎const fontSize = 16;
+‎const columns = canvas.width / 150; 
+‎const drops = [];
+‎
+‎
+‎for (let x = 0; x < columns; x++) {
+‎    drops[x] = Math.random() * -100; 
+‎}
+‎
+‎function drawMatrix() {
+‎    
+‎    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+‎    ctx.fillRect(0, 0, canvas.width, canvas.height);
+‎
+‎    ctx.fillStyle = "#00FF00"; 
+‎    ctx.font = fontSize + "px Courier New";
+‎
+‎    for (let i = 0; i < drops.length; i++) {
+‎        
+‎        const text = fallKeywords[Math.floor(Math.random() * fallKeywords.length)];
+‎        
+‎        ctx.fillText(text, i * 180, drops[i] * fontSize);
+‎
+‎        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+‎            drops[i] = 0;
+‎        }
+‎        drops[i] += 0.5;
+‎    }
+‎}
+‎
+‎setInterval(drawMatrix, 50);
+‎
+‎window.addEventListener('resize', () => {
+‎    canvas.width = window.innerWidth;
+‎    canvas.height = window.innerHeight;
+‎});
+‎</script>
+‎
+‎<script type="py">
+‎import asyncio
+‎from pyscript import display
+‎
+‎# Terminal sequence
+‎keywords = [
+‎    "User: KHAN Initializing...",
+‎    "Access Granted", "Access Denied", "Decrypting Data...", "Initializing System...",
+‎    "Bypassing Firewall...", "Connection Established", "Scanning Network...",
+‎    "Uploading Payload...", "Downloading Files...", "Root Access Acquired",
+‎    "Injecting Script...", "System Override", "Authentication Required",
+‎    "Password Cracked", "Encrypting Data...", "IP Traced", "Proxy Enabled",
+‎    "Data Stream Active", "Security Breach Detected", "Mission Complete",
+‎    "Prank Tha Real Nahi 😂"
+‎]
+‎
+‎async def run_hacker_sequence():
+‎    terminal = "hacker-terminal"
+‎    for word in keywords:
+‎        display(f"> {word}", target=terminal, append=True)
+‎        await asyncio.sleep(1)
+‎
+‎asyncio.ensure_future(run_hacker_sequence())
+‎</script>
+‎
     
 
   
 
 
-  <div id="hacker-terminal" style="background-color: black; color: #00FF00; font-family: 'Courier New', monospace; padding: 20px; border-radius: 5px; height: 300px; overflow-y: auto;">
-</div>
 
-const canvas = document.getElementById('matrix-canvas');
-const ctx = canvas.getContext('2d');
-const container = document.getElementById('terminal-container');
-
-canvas.width = container.offsetWidth;
-canvas.height = container.offsetHeight;
-
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for (let x = 0; x < columns; x++) drops[x] = 1;
-
-function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0F0";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-    }
-}
-setInterval(drawMatrix, 33);
-</script>
-
-<script type="py">
-import asyncio
-from pyscript import display
-
-# Yahan apna naam likhein
-user_name = "Decoded_191" # <-- Isko change kar sakte ho
-
-keywords = [
-    f"User: {user_name} Initializing...",
-    "Access Granted",
-    "Access Denied",
-    "Decrypting Data...",
-    "Initializing System...",
-    "Bypassing Firewall...",
-    "Connection Established",
-    "Scanning Network...",
-    "Uploading Payload...",
-    "Downloading Files...",
-    "Root Access Acquired",
-    "Injecting Script...",
-    "System Override",
-    "Authentication Required",
-    "Password Cracked",
-    "Encrypting Data...",
-    "IP Traced",
-    "Proxy Enabled",
-    "Data Stream Active",
-    "Security Breach Detected",
-    "Mission Complete",
-    "Prank Tha Real Nahi 😂"
-]
-
-async def run_hacker_sequence():
-    terminal = "hacker-terminal"
-    for word in keywords:
-        # Har line ko ek div mein dikhayenge styling ke liye
-        display(f"> {word}", target=terminal, append=True)
-        await asyncio.sleep(1)
-
-asyncio.ensure_future(run_hacker_sequence())
-</script>
-  
   
 </body>
 </html>
